@@ -30,29 +30,39 @@ public class CarMovement : MonoBehaviour
             currentSpeed = Mathf.Lerp(currentSpeed, speed, decelerationRate * Time.deltaTime);
         }
 
+        // 移動邏輯移到 FixedUpdate 中，因為物理相關的運算應該在這裡進行
+    }
+
+    void FixedUpdate()
+    {
         // 計算修正方向
         Vector3 directionToPath = (pathPoint.position - transform.position).normalized;
-        Vector3 correctionDirection = Vector3.Lerp(transform.forward, directionToPath, correctionStrength * Time.deltaTime);
+        Vector3 correctionDirection = Vector3.Lerp(transform.forward, directionToPath, correctionStrength * Time.fixedDeltaTime);
 
         // 計算移動方向
-        Vector3 movement = correctionDirection * currentSpeed * Time.deltaTime;
+        Vector3 movement = correctionDirection * currentSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + movement); // 使用剛體移動車輛
 
         // 修正車輛方向以面向路徑
         Quaternion targetRotation = Quaternion.LookRotation(correctionDirection);
-        rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, correctionStrength * Time.deltaTime);
+        rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, correctionStrength * Time.fixedDeltaTime);
     }
 
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("GreenLight"))
         {
-            Debug.Log("離開紅燈區域");
+            //Debug.Log("離開紅燈區域");
             shouldStop = false;
         }
         else if (other.CompareTag("RedLight"))
         {
-            Debug.Log("撞到紅燈");
+            //Debug.Log("撞到紅燈");
+            shouldStop = true;
+        }
+        else if (other.CompareTag("YellowLight"))
+        {
+            //Debug.Log("撞到黃燈");
             shouldStop = true;
         }
     }

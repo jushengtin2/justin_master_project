@@ -9,9 +9,9 @@ public class TrafficLightController : MonoBehaviour
     public GameObject yellowLightLine; // 黃燈線物體（用於檢測車輛）
     public GameObject redLightLine;    // 紅燈線物體（用於停止車輛）
 
-    public float redLightDuration = 10f;   // 紅燈持續時間
-    public float yellowLightDuration = 1f; // 黃燈持續時間
-    public float greenLightDuration = 10f; // 綠燈持續時間
+    public float redLightDuration = 5f;   // 紅燈持續時間
+    public float yellowLightDuration = 0.8f; // 黃燈持續時間
+    public float greenLightDuration = 5f; // 綠燈持續時間
 
     private bool isCarDetectedInYellow = false; // 車輛是否進入黃燈區域
 
@@ -34,7 +34,7 @@ public class TrafficLightController : MonoBehaviour
             {
                 // 黃燈亮
                 SwitchLightState(false, true, false);
-                SetRedLightLineTag("GreenLight"); // 黃燈時，保持red_light_line為"GreenLight"
+                SetRedLightLineTag("YellowLight"); // 黃燈時，保持red_light_line為"YellowLight"
                 yield return new WaitForSeconds(yellowLightDuration);
 
                 // 紅燈亮

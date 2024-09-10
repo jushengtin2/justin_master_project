@@ -9,6 +9,8 @@ TagManager:
   - stealingpoint
   - RedLight
   - GreenLight
+  - cross_walk_line
+  - YellowLight
   layers:
   - Default
   - TransparentFX
