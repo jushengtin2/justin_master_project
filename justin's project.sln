@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{9FBE723C-1985-F320-9FFC-E8CC3E331947}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALP8310_ControllerGlobal", "ALP8310_ControllerGlobal.csproj", "{0387B840-BD84-7F00-6266-3E1A701BBEC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALP8310_ControllerGlobal.Editor", "ALP8310_ControllerGlobal.Editor.csproj", "{385BA2CA-E432-912D-0601-56DE32F27166}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{9FBE723C-1985-F320-9FFC-E8CC3E331947}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FBE723C-1985-F320-9FFC-E8CC3E331947}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FBE723C-1985-F320-9FFC-E8CC3E331947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0387B840-BD84-7F00-6266-3E1A701BBEC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0387B840-BD84-7F00-6266-3E1A701BBEC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0387B840-BD84-7F00-6266-3E1A701BBEC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0387B840-BD84-7F00-6266-3E1A701BBEC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{385BA2CA-E432-912D-0601-56DE32F27166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{385BA2CA-E432-912D-0601-56DE32F27166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{385BA2CA-E432-912D-0601-56DE32F27166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{385BA2CA-E432-912D-0601-56DE32F27166}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

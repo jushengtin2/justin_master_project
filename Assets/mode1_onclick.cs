@@ -10,11 +10,11 @@ public class Button1ClickHandler : MonoBehaviour
     }
     public void OnButton2Click()
     {
-        SceneManager.LoadScene("Scene2");  // 切換到名為 "Scene1" 的場景
+        SceneManager.LoadScene("Scene2");  // 切換到名為 "Scene2" 的場景
     }
     public void OnButton3Click()
     {
-        SceneManager.LoadScene("Scene3");  // 切換到名為 "Scene1" 的場景
+        SceneManager.LoadScene("Scene3");  // 切換到名為 "Scene" 的場景
     }
     public void On_choose_scene1_Button_Click()
     {

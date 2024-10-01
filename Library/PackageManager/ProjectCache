@@ -191,10 +191,14 @@ m_ResolvedPackages:
     - 2.3.1
     - 2.4.3
     - 2.4.4
+    - 2.5.1
+    - 2.5.2
     compatible:
     - 2.3.1
     - 2.4.3
     - 2.4.4
+    - 2.5.1
+    - 2.5.2
     recommended: 2.3.1
     deprecated: []
   dependencies: []
@@ -1106,6 +1110,7 @@ m_ResolvedPackages:
     - 3.2.3
     - 3.3.0
     - 3.4.0
+    - 3.4.1
     - 4.0.0
     - 4.1.1
     - 4.1.2
@@ -1113,9 +1118,11 @@ m_ResolvedPackages:
     - 4.2.0-exp-env-depth.2
     - 4.2.0
     - 4.3.0-pre.1
+    - 4.3.0
     compatible:
     - 4.2.0
     - 4.3.0-pre.1
+    - 4.3.0
     recommended: 4.2.0
     deprecated: []
   dependencies:
@@ -3154,9 +3161,11 @@ m_ResolvedPackages:
     - 2.1.8
     - 2.1.9
     - 2.1.10
+    - 2.1.11
     compatible:
     - 2.1.10
-    recommended: 2.1.10
+    - 2.1.11
+    recommended: 2.1.11
     deprecated: []
   dependencies:
   - name: com.unity.modules.vr
