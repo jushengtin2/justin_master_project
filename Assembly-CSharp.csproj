@@ -67,6 +67,7 @@
     <Compile Include="Assets\simple modular human\scripts\Test_script.cs" />
     <Compile Include="Assets\LowPolyRetroCars\car move.cs" />
     <Compile Include="Assets\human Move z.cs" />
+    <Compile Include="Assets\redlight_wait.cs" />
     <Compile Include="Assets\human_Motivation_minus_z.cs" />
     <Compile Include="Assets\break red light.cs" />
     <Compile Include="Assets\Continue game.cs" />
@@ -94,6 +95,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Fantasy Skybox FREE\ReleaseNotes.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\OutlineShader.shader" />
     <None Include="Assets\Truck_LowPoly\Documentation\Documentation Truck low Poly.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />

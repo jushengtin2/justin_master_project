@@ -43,7 +43,7 @@ public class Test_script : MonoBehaviour
 
     void Start()
     {
-        
+        this.enabled = false; // 禁用脚本
         agent = GetComponent<NavMeshAgent>();
 
         sitting_position = new Vector3(0,0,0);
@@ -189,46 +189,81 @@ public class Test_script : MonoBehaviour
 
 
 
-            if(what_to_choose == 0)
-            {
-                walk = true;
+            if (what_to_choose == 0)
+{
+    walk = true;
 
-                int Which_point = UnityEngine.Random.Range(0, way_points.Count);
-                aim_point = way_points[Which_point].gameObject;
-                destermine_new_aim = true;
-            }
-            if (what_to_choose == 1)
-            {
-                run = true;
+        if (way_points.Count > 0) // 确保 way_points 列表不为空
+        {
+            int Which_point = UnityEngine.Random.Range(0, way_points.Count);
+            aim_point = way_points[Which_point].gameObject;
+            destermine_new_aim = true;
+        }
+        else
+        {
+            Debug.LogError("way_points 列表为空，无法选择目标点！");
+        }
+    }
+    if (what_to_choose == 1)
+    {
+        run = true;
 
-                int Which_point = UnityEngine.Random.Range(0, way_points.Count );
-                aim_point = way_points[Which_point].gameObject;
-                destermine_new_aim = true;
-            }
-            if (what_to_choose == 2)
-            {
-                sit = true;
+        if (way_points.Count > 0) // 确保 way_points 列表不为空
+        {
+            int Which_point = UnityEngine.Random.Range(0, way_points.Count);
+            aim_point = way_points[Which_point].gameObject;
+            destermine_new_aim = true;
+        }
+        else
+        {
+            Debug.LogError("way_points 列表为空，无法选择目标点！");
+        }
+    }
+    if (what_to_choose == 2)
+    {
+        sit = true;
 
-                int Which_point = UnityEngine.Random.Range(0, Sitting_points.Count );
-                aim_point = Sitting_points[Which_point].gameObject;
-                destermine_new_aim = true;
-            }
-            if (what_to_choose == 3)
-            {
-                steal = true;
+        if (Sitting_points.Count > 0) // 确保 Sitting_points 列表不为空
+        {
+            int Which_point = UnityEngine.Random.Range(0, Sitting_points.Count);
+            aim_point = Sitting_points[Which_point].gameObject;
+            destermine_new_aim = true;
+        }
+        else
+        {
+            Debug.LogError("Sitting_points 列表为空，无法选择目标点！");
+        }
+    }
+    if (what_to_choose == 3)
+    {
+        steal = true;
 
-                int Which_point = UnityEngine.Random.Range(0, Stealing_points.Count );
-                aim_point = Stealing_points[Which_point].gameObject;
-                destermine_new_aim = true;
-            }
-            if (what_to_choose == 4)
-            {
-                pick_up = true;
+        if (Stealing_points.Count > 0) // 确保 Stealing_points 列表不为空
+        {
+            int Which_point = UnityEngine.Random.Range(0, Stealing_points.Count);
+            aim_point = Stealing_points[Which_point].gameObject;
+            destermine_new_aim = true;
+        }
+        else
+        {
+            Debug.LogError("Stealing_points 列表为空，无法选择目标点！");
+        }
+    }
+    if (what_to_choose == 4)
+    {
+        pick_up = true;
 
-                int Which_point = UnityEngine.Random.Range(0, pick_up_points.Count );
-                aim_point = pick_up_points[Which_point].gameObject;
-                destermine_new_aim = true;
-            }
+        if (pick_up_points.Count > 0) // 确保 pick_up_points 列表不为空
+        {
+            int Which_point = UnityEngine.Random.Range(0, pick_up_points.Count);
+            aim_point = pick_up_points[Which_point].gameObject;
+            destermine_new_aim = true;
+        }
+        else
+        {
+            Debug.LogError("pick_up_points 列表为空，无法选择目标点！");
+        }
+    }
 
         }
         if (destermine_new_aim)

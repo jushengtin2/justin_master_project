@@ -11,11 +11,12 @@ TagManager:
   - GreenLight
   - cross_walk_line
   - YellowLight
+  - NPC
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - 'Car '
   - Water
   - UI
   - 
