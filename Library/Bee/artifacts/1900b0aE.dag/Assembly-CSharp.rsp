@@ -116,6 +116,7 @@
 -define:ENABLE_TERRAIN
 -define:ENABLE_TILEMAP
 -define:ENABLE_TIMELINE
+-define:ENABLE_INPUT_SYSTEM
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 -define:CSHARP_7_OR_LATER
@@ -337,6 +338,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.AI.Navigation.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.AI.Navigation.Updater.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.EditorCoroutines.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.InputSystem.ForUI.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.InputSystem.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Rider.Editor.ref.dll"
@@ -374,6 +377,7 @@
 "Assets/CarMovement1.cs"
 "Assets/CarNode.cs"
 "Assets/Continue game.cs"
+"Assets/count_down.cs"
 "Assets/cross line alert.cs"
 "Assets/cross_walk_line.cs"
 "Assets/human move +x.cs"
@@ -382,6 +386,7 @@
 "Assets/LowPolyRetroCars/car move.cs"
 "Assets/mode1_onclick.cs"
 "Assets/NPC Car Script.cs"
+"Assets/OvertakeWarning.cs"
 "Assets/redlight_wait.cs"
 "Assets/simple modular human/scripts/clothing.cs"
 "Assets/simple modular human/scripts/Test_script.cs"

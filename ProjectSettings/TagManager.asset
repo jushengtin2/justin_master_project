@@ -12,6 +12,11 @@ TagManager:
   - cross_walk_line
   - YellowLight
   - NPC
+  - scene2_waring
+  - scene2_waring_line
+  - Obstacle
+  - finish_game_line
+  - scene2_finish_line
   layers:
   - Default
   - TransparentFX

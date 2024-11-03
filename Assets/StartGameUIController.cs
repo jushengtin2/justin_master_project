@@ -1,65 +1,138 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;  // Add this line to include the IEnumerator namespace
+using System.Collections;
 
 public class StartGameUIController : MonoBehaviour
 {
-    // 引用開始遊戲的 Canvas
-    public GameObject startGameCanvas; // 確保這裡引用的是 Canvas 物件
+    // References to start game Canvases
+    public GameObject startGameCanvas;
+    public GameObject startGameCanvas_just4start;
+    public GameObject startGameCanvas_just4end;
 
+    public GameObject startGameCanvas_toofar;
     void Start()
     {
-        // 一開始遊戲進入暫停狀態
+        // Pause the game at the start
         PauseGame();
     }
 
-    public void OnStartGameButtonClicked()
+    public void OnStartGameButtonClicked() //這第一關的
     {
         if (startGameCanvas != null)
         {
-            Debug.Log("Canvas 引用已設置，嘗試隱藏 Canvas...");
+            Debug.Log("Canvas reference set, attempting to hide Canvas...");
 
-            // 檢查 Canvas 是否活動
+            // Check if Canvas is active
             if (startGameCanvas.activeInHierarchy)
             {
-                // 恢復遊戲
                 ResumeGame();
-
-                // 添加一點延遲來確保 Coroutine 在 Canvas 被禁用之前開始
-                StartCoroutine(LoadGameScene());
-
+                StartCoroutine(LoadGameScene("Scene1")); // Replace "Scene1" with your main game scene name
                 startGameCanvas.SetActive(false);
-                Debug.Log("Canvas 已隱藏");
+                Debug.Log("Canvas hidden");
             }
             else
             {
-                Debug.Log("Canvas 已經是隱藏狀態");
+                Debug.Log("Canvas is already hidden");
             }
         }
         else
         {
-            Debug.LogError("Canvas 引用未設置！");
+            Debug.LogError("Canvas reference not set!");
         }
     }
 
-    private IEnumerator LoadGameScene()
+    public void OnStartGameButtonClicked_toofar()
     {
-        // 延遲 0.5 秒以確保 Canvas 隱藏後再進行場景切換
-        yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene("Scene1"); // 替換 "Scene1" 為你的遊戲場景名稱
+        if (startGameCanvas_toofar != null)
+        {
+            Debug.Log("Canvas reference set, attempting to hide Canvas...");
+
+            // Check if Canvas is active
+            if (startGameCanvas_toofar.activeInHierarchy)
+            {   Time.timeScale = 1f;  // 確保遊戲沒有暫停
+                StartCoroutine(LoadGameScene("Scenes/choose_scene-1")); // Replace "Scene2" with another scene name
+                Debug.Log("123456654");
+            }
+            else
+            {
+                Debug.Log("Canvas is already hidden");
+            }
+        }
+        else
+        {
+            Debug.LogError("Canvas reference not set!");
+        }
     }
 
-    // 暫停遊戲方法
+    public void OnStartGameButtonClicked_just4start()
+    {
+        if (startGameCanvas_just4start != null)
+        {
+            Debug.Log("Canvas reference set, attempting to hide Canvas...");
+
+            // Check if Canvas is active
+            if (startGameCanvas_just4start.activeInHierarchy)
+            {
+                
+                startGameCanvas_just4start.SetActive(false);
+                Debug.Log("Canvas hidden");
+            }
+            else
+            {
+                Debug.Log("Canvas is already hidden");
+            }
+        }
+        else
+        {
+            Debug.LogError("Canvas reference not set!");
+        }
+    }
+
+    public void OnStartGameButtonClicked_just4end()
+    {
+        if (startGameCanvas_just4end != null)
+        {
+            Debug.Log("Canvas reference set, attempting to hide Canvas...");
+
+            // Check if Canvas is active
+            if (startGameCanvas_just4end.activeInHierarchy)
+            {   Time.timeScale = 1f;  // 確保遊戲沒有暫停
+                StartCoroutine(LoadGameScene("Scenes/choose_scene-1")); // Replace "Scene2" with another scene name
+                Debug.Log("123456654");
+            }
+            else
+            {
+                Debug.Log("Canvas is already hidden");
+            }
+        }
+        else
+        {
+            Debug.LogError("Canvas reference not set!");
+        }
+    }
+
+    // New method to load different scenes by name
+    public void OnButtonClickLoadScene(string sceneName="Scene1")
+    {
+        Debug.Log("Loading scene: " + sceneName);
+        StartCoroutine(LoadGameScene(sceneName));
+    }
+
+    private IEnumerator LoadGameScene(string sceneName)
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(sceneName);
+    }
+
     private void PauseGame()
     {
-        Time.timeScale = 0f; // 將時間設為 0，遊戲暫停
-        Debug.Log("遊戲已暫停");
+        Time.timeScale = 0f;
+        Debug.Log("Game paused");
     }
 
-    // 恢復遊戲方法
     private void ResumeGame()
     {
-        Time.timeScale = 1f; // 將時間設為 1，遊戲恢復正常速度
-        Debug.Log("遊戲已恢復");
+        Time.timeScale = 1f;
+        Debug.Log("Game resumed");
     }
 }

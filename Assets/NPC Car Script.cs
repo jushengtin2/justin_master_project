@@ -19,11 +19,13 @@ public class NPCCarScript : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.updatePosition = true;  // 确保更新位置
+        agent.updateRotation = true;  // 确保更新旋转
         originalSpeed = agent.speed; // 保存原本的速度
         CalculateAndSetPath();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // 檢查紅燈狀態，如果紅燈亮起，則暫停 NPC 的移動
         if (redLightController != null && redLightController.IsRedLightActive())
@@ -58,53 +60,7 @@ public class NPCCarScript : MonoBehaviour
     }
 
     // 障礙物檢測與避讓
-    void DetectAndAvoidObstacle()
-    {
-        bool obstacleDetected = false;
-
-        int numRays = 7;  // 射線的數量
-        float angleStep = 60f / (numRays - 1);
-        float startAngle = -30f;
-
-        for (int i = 0; i < numRays; i++)
-        {
-            float currentAngle = startAngle + i * angleStep;
-            Vector3 rayDirection = Quaternion.Euler(0, currentAngle, 0) * transform.forward;
-
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, rayDirection, out hit, obstacleDetectionDistance, obstacleLayer))
-            {
-                if (hit.collider.gameObject.CompareTag("Car"))
-                {
-                    obstacleDetected = true;
-
-                    if (hit.distance <= stopDistance)
-                    {
-                        agent.isStopped = true;
-                    }
-                    else
-                    {
-                        agent.isStopped = false;
-                        agent.speed = slowDownSpeed;
-
-                        Vector3 avoidDirection = Vector3.Cross(transform.forward, Vector3.up);
-                        Vector3 newTarget = transform.position + avoidDirection * 2f;
-                        agent.SetDestination(newTarget);
-                    }
-
-                    break; // 如果檢測到障礙物，跳出迴圈
-                }
-            }
-
-            Debug.DrawRay(transform.position, rayDirection * obstacleDetectionDistance, Color.red);
-        }
-
-        if (!obstacleDetected)
-        {
-            agent.isStopped = false; // 確保 NPC 可以繼續前進
-            agent.speed = originalSpeed;
-        }
-    }
+    
 
     void GoToNextWaypoint()
     {

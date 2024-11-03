@@ -1,0 +1,67 @@
+{
+    "name": "CarControls",
+    "maps": [
+        {
+            "name": "Steering",
+            "id": "d412db0e-5299-47df-9590-18ed625b0073",
+            "actions": [
+                {
+                    "name": "Steering",
+                    "type": "Value",
+                    "id": "fe17e021-19e6-4b19-8db3-7be2d7b97f5a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a8f319a4-0b7c-4464-bdcc-57144ad8196c",
+                    "path": "<HID::Logitech G923 Racing Wheel for PlayStation and PC>/stick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steering",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6775e281-8df6-49e2-8c68-e1b87040162c",
+                    "path": "<HID::Logitech G923 Racing Wheel for PlayStation and PC>/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steering",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e412303-715a-4df6-8be0-5561fc6737c0",
+                    "path": "<HID::Logitech G923 Racing Wheel for PlayStation and PC>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steering",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9877beef-62f7-4b47-a24e-d6f5b72387d8",
+                    "path": "<HID::Logitech G923 Racing Wheel for PlayStation and PC>/stick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steering",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

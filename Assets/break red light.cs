@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;  // 確保可以使用 UI 元素
 using System.Collections;
+using TMPro; 
 public class breakredlight : MonoBehaviour
 {
     // 引用紅燈的 GameObject
@@ -11,6 +12,9 @@ public class breakredlight : MonoBehaviour
 
     // 引用 UI 中的繼續遊戲按鈕
     public Button continueButton;
+
+    public TextMeshProUGUI scoreText; // 記分板的 TextMeshPro 元件
+    private int score = 0; // 初始分數為 0
 
     private void Start()
     {
@@ -36,6 +40,10 @@ public class breakredlight : MonoBehaviour
             {
                 // 顯示警告 UI 並暫停遊戲
                 ShowWarningUI();
+                MinusScore();
+            }
+            else{
+                AddScore();//這邊寫加分
             }
         }
     }
@@ -47,7 +55,7 @@ public class breakredlight : MonoBehaviour
         {
             warningUICanvas.SetActive(true); // 顯示 UI
             Time.timeScale = 0f;  // 暫停遊戲
-            Debug.Log("紅燈亮起，您壓過了指定線，UI 已顯示且遊戲暫停。");
+            Debug.Log("紅燈亮起 您壓過了指定線 UI 已顯示且遊戲暫停。");
         }
         else
         {
@@ -57,13 +65,36 @@ public class breakredlight : MonoBehaviour
 
     // 繼續遊戲邏輯，當按下按鈕時觸發
     public void OnContinueButtonClicked()
-{
-    if (warningUICanvas != null)
     {
-        warningUICanvas.SetActive(false); // 隱藏 UI
+        if (warningUICanvas != null)
+        {
+            warningUICanvas.SetActive(false); // 隱藏 UI
+        }
+        Time.timeScale = 1f;  // 恢復遊戲
+        Debug.Log("遊戲已恢復");
     }
-    Time.timeScale = 1f;  // 恢復遊戲
-    Debug.Log("遊戲已恢復");
-}
+
+    private void AddScore()
+    {
+        score += 1; // 分數加 1
+        UpdateScoreText(); // 更新記分板上的顯示
+    }
+    private void MinusScore(){
+        if (score>0){
+
+             score -= 1; // 分數-1
+        UpdateScoreText(); // 更新記分板上的顯示
+        }
+       
+    }
+
+    private void UpdateScoreText()
+    {
+        if (scoreText != null && score >=0)
+        {
+            scoreText.text = "目前分數:  " + score; // 更新 TextMeshPro 上的分數顯示
+        }
+        
+    }
 }
 
